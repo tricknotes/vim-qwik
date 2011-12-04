@@ -7,7 +7,42 @@ if exists("b:current_syntax")
   finish
 endif
 
-" TODO set syntax
+runtime! syntax/html.vim
+unlet! b:current_syntax
+
+syn sync minlines=10
+syn case ignore
+
+syn match qwikLineStart "^[<@]\@!" nextgroup=@qwikBlock
+
+syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikListMarker,qwikOrderedListMarker
+
+syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^![^!]"       end="!*\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^!![^!]"      end="!*\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^!!![^!]"     end="!*\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^!!!![^!]"    end="!*\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^!!!!![^!]"   end="!*\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^!!!!!![^!]"  end="!*\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^\*[^*]"            end="\**\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^\*\*[^*]"          end="\**\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^\*\*\*[^*]"        end="\**\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^\*\*\*\*[^*]"      end="\**\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^\*\*\*\*\*[^*]"    end="\**\s*$" keepend oneline contains=@qwikInline contained
+syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\*\*\*\*\*[^*]"  end="\**\s*$" keepend oneline contains=@qwikInline contained
+
+syn match qwikListMarker "-\{0,4\}\%(\s\+\S\)\@=" contained
+syn match qwikOrderedListMarker "+\{0,4\}\%(\s\+\S\)\@=" contained
+
+hi def link qwikH1                    htmlH1
+hi def link qwikH2                    htmlH2
+hi def link qwikH3                    htmlH3
+hi def link qwikH4                    htmlH4
+hi def link qwikH5                    htmlH5
+hi def link qwikH6                    htmlH6
+hi def link qwikHeadingRule           qwikRule
+hi def link qwikHeadingDelimiter      Delimiter
+hi def link qwikOrderedListMarker     qwikListMarker
+hi def link qwikListMarker            htmlTagName
 
 let b:current_syntax = "qwik"
 
