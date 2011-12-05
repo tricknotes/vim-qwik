@@ -15,7 +15,7 @@ syn case ignore
 
 syn match qwikLineStart "^[<@]\@!" nextgroup=@qwikBlock
 
-syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikListMarker,qwikOrderedListMarker
+syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikBlockquote,qwikListMarker,qwikOrderedListMarker
 syn cluster qwikInline contains=qwikBold
 
 syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^![^!]"       end="!*\s*$" keepend oneline contains=@qwikInline contained
@@ -30,6 +30,8 @@ syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^\*\*\*[^*]"        end
 syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^\*\*\*\*[^*]"      end="\**\s*$" keepend oneline contains=@qwikInline contained
 syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^\*\*\*\*\*[^*]"    end="\**\s*$" keepend oneline contains=@qwikInline contained
 syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\*\*\*\*\*[^*]"  end="\**\s*$" keepend oneline contains=@qwikInline contained
+
+syn match qwikBlockquote ">\s" contained nextgroup=@qwikBlock
 
 syn match qwikListMarker "-\{0,4\}\%(\s\+\S\)\@=" contained
 syn match qwikOrderedListMarker "+\{0,4\}\%(\s\+\S\)\@=" contained
@@ -47,6 +49,7 @@ hi def link qwikHeadingRule           qwikRule
 hi def link qwikHeadingDelimiter      Delimiter
 hi def link qwikOrderedListMarker     qwikListMarker
 hi def link qwikListMarker            htmlTagName
+hi def link qwikBlockquote            Comment
 
 hi def link qwikBold                  htmlBold
 
