@@ -15,8 +15,8 @@ syn case ignore
 
 syn match qwikLineStart "^[<@]\@!" nextgroup=@qwikBlock
 
-syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikBlockquote,qwikListMarker,qwikOrderedListMarker
-syn cluster qwikInline contains=qwikBold
+syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikBlockquote,qwikListMarker,qwikOrderedListMarker,qwikCodeBlock
+syn cluster qwikInline contains=qwikBold,qwikCode
 
 syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^![^!]"       end="!*\s*$" keepend oneline contains=@qwikInline contained
 syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^!![^!]"      end="!*\s*$" keepend oneline contains=@qwikInline contained
@@ -33,11 +33,15 @@ syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\*\*\*\*\*[^*]"  end
 
 syn match qwikBlockquote ">\s" contained nextgroup=@qwikBlock
 
+syn region qwikCodeBlock start="^ \|^\t" end="$" contained
+
 syn match qwikListMarker "-\{0,4\}\%(\s\+\S\)\@=" contained
 syn match qwikOrderedListMarker "+\{0,4\}\%(\s\+\S\)\@=" contained
 
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" end="''" keepend oneline contains=qwikLineStart
 syn region qwikBold matchgroup=qwikCodeDelimiter start="'''" end="'''" keepend oneline contains=qwikLineStart
+
+syn region qwikCode matchgroup=qwikCodeDelimiter start="^{{{$" end="^}}}$" keepend
 
 hi def link qwikH1                    htmlH1
 hi def link qwikH2                    htmlH2
@@ -52,6 +56,7 @@ hi def link qwikListMarker            htmlTagName
 hi def link qwikBlockquote            Comment
 
 hi def link qwikBold                  htmlBold
+hi def link qwikCodeDelimiter         Delimiter
 
 let b:current_syntax = "qwik"
 
