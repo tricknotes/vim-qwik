@@ -43,6 +43,8 @@ syn region qwikBold matchgroup=qwikCodeDelimiter start="'''" end="'''" keepend o
 
 syn region qwikCode matchgroup=qwikCodeDelimiter start="^{{{$" end="^}}}$" keepend
 
+syn region qwikComment start="^#" end="$" keepend
+
 hi def link qwikH1                    htmlH1
 hi def link qwikH2                    htmlH2
 hi def link qwikH3                    htmlH3
@@ -57,6 +59,8 @@ hi def link qwikBlockquote            Comment
 
 hi def link qwikBold                  htmlBold
 hi def link qwikCodeDelimiter         Delimiter
+
+hi def link qwikComment               Comment
 
 let b:current_syntax = "qwik"
 
