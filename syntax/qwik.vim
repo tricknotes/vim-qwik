@@ -35,8 +35,8 @@ syn match qwikBlockquote ">\s" contained nextgroup=@qwikBlock
 
 syn region qwikCodeBlock start="^ \|^\t" end="$" contained
 
-syn match qwikListMarker "-\{0,4\}\%(\s\+\S\)\@=" contained
-syn match qwikOrderedListMarker "+\{0,4\}\%(\s\+\S\)\@=" contained
+syn match qwikListMarker "-\{1,3\}\%(\s\+\S\)\@=" contained
+syn match qwikOrderedListMarker "+\{1,3\}\%(\s\+\S\)\@=" contained
 
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" end="''" keepend oneline contains=qwikLineStart
 syn region qwikBold matchgroup=qwikCodeDelimiter start="'''" end="'''" keepend oneline contains=qwikLineStart
