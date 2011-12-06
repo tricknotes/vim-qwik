@@ -38,7 +38,7 @@ syn region qwikCodeBlock start="^ \|^\t" end="$" contained
 syn match qwikListMarker "-\{1,3\}\%(\s\+\S\)\@=" contained
 syn match qwikOrderedListMarker "+\{1,3\}\%(\s\+\S\)\@=" contained
 
-syn match qwikRule "^=\{4\}$" contained
+syn match qwikRule "^[=-]\{4\}$" contained
 syn match qwikRule "^-- $" contained
 
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" end="''" keepend oneline contains=qwikLineStart
