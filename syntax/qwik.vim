@@ -41,7 +41,10 @@ syn match qwikOrderedListMarker "+\{1,3\}\%(\s\+\S\)\@=" contained
 syn match qwikRule "^[=-]\{4\}$" contained
 syn match qwikRule "^-- $" contained
 
-syn region qwikIdLink matchgroup=qwikLinkMarker start="\[\[" end="]]" keepend oneline contains=qwikLineStart
+syn region qwikIdLink start=+\[\[+ end=+]]+ keepend oneline contains=qwikId,qwikLink
+syn region qwikId contained start=+\[\[+ms=s+2 keepend end=+]]+me=s-1 oneline
+syn region qwikId contained start=+\[\[+ms=s+2 keepend end=+|+me=s-1 oneline
+syn region qwikLink contained start=+|+ms=s+1 keepend end=+]]+me=s-1 oneline
 
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" end="''" keepend oneline contains=qwikLineStart
 syn region qwikItalicBold matchgroup=qwikCodeDelimiter start="'''" end="'''" keepend oneline contains=qwikLineStart
@@ -65,7 +68,9 @@ hi def link qwikListMarker            htmlTagName
 hi def link qwikBlockquote            Comment
 hi def link qwikRule                  PreProc
 
-hi def link qwikIdLink                htmlTag
+hi def link qwikIdLink                htmlTagName
+hi def link qwikId                    htmlTag
+hi def link qwikLink                  htmlLink
 
 hi def link qwikBold                  htmlBold
 hi def link qwikItalicBold            htmlItalicBold
