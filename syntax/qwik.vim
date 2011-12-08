@@ -51,6 +51,7 @@ syn region qwikTableCommaNode contained start=+,+ keepend end=++ oneline
 syn region qwikTablePipe start=+^|+ keepend end=+$+ oneline contains=qwikTablePipeNode
 syn region qwikTablePipeNode contained start=+|+ keepend end=++ oneline
 
+syn region qwikDel matchgroup=qwikCodeDelimiter start="==" keepend end="==" oneline
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" keepend end="''" oneline contains=qwikLineStart
 syn region qwikItalicBold matchgroup=qwikCodeDelimiter start="'''" keepend end="'''" oneline contains=qwikLineStart
 
