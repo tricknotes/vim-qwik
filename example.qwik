@@ -1,0 +1,58 @@
+* Example for vim qwik
+
+Syntax examples for [[qwik|http://qwik.jp/]].
+
+** List
+
+- List1
+-- List1-1
+- List2
+-- List2-1
+--- List2-1-1
+
+** Ordered list
+
++ Subject1
++ Subject2
+++ Subject2-1
+
+** Shaped text
+
+{{{
+var greet = function (name){
+  return 'Hi, ' + name + '!';
+};
+
+alert(greet('Jhon'));
+}}}
+
+** Quote
+
+> This is a quoted line.
+
+** Word explanation
+
+:vim-qwik:The plugin for qwik syntax highlight.
+
+** Table
+
+, Red, Green, Yellow
+
+| One| Two| Three
+
+** Emphasis
+
+''Emphasis''
+'''more Emphasis'''
+
+** Link
+
+Link to [[Sample]].
+[[Google|http://google.com/]]
+
+** Comment
+
+# Commnet line.
+
+----
+Thank you!
