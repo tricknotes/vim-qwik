@@ -46,6 +46,10 @@ syn region qwikId contained start=+\[\[+ms=s+2 keepend end=+]]+me=s-1 oneline
 syn region qwikId contained start=+\[\[+ms=s+2 keepend end=+|+me=s-1 oneline
 syn region qwikLink contained start=+|+ms=s+1 keepend end=+]]+me=s-1 oneline
 
+syn region qwikWord start=+^:[^:]*+ keepend end=+:+ oneline contains=qwikWordHead,qwikWordSep
+syn region qwikWordHead contained start=+[^:]*+ keepend end=++ oneline
+syn region qwikWordSep contained start=+:+ end=++ oneline
+
 syn region qwikTableComma start=+^,+ keepend end=+$+ oneline contains=qwikTableCommaNode
 syn region qwikTableCommaNode contained start=+,+ keepend end=++ oneline
 syn region qwikTablePipe start=+^|+ keepend end=+$+ oneline contains=qwikTablePipeNode
@@ -77,6 +81,9 @@ hi def link qwikRule                  PreProc
 hi def link qwikIdLink                htmlTagName
 hi def link qwikId                    htmlTag
 hi def link qwikLink                  htmlLink
+
+hi def link qwikWordHead              htmlBold
+hi def link qwikWordSep               htmlTagName
 
 hi def link qwikTableCommaNode        htmlTAgName
 hi def link qwikTablePipeNode         htmlTAgName
