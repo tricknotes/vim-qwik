@@ -15,7 +15,7 @@ syn case ignore
 
 syn match qwikLineStart "^[<@]\@!" nextgroup=@qwikBlock
 
-syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikBlockquote,qwikListMarker,qwikOrderedListMarker,qwikCodeBlock,qwikRule,qwikTableComma,qwikTablePipe
+syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikBlockquote,qwikListMarker,qwikOrderedListMarker,qwikCodeBlock,qwikRule,qwikDel,qwikTableComma,qwikTablePipe
 syn cluster qwikInline contains=qwikItalicBold,qwikBold,qwikCode,qwikIdLink,qwikPlugin
 
 syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^!\{1\}[^!]"  keepend end="$"
@@ -55,7 +55,8 @@ syn region qwikTableCommaNode contained start=+,+ keepend end=++ oneline
 syn region qwikTablePipe start=+^|+ keepend end=+$+ oneline contains=qwikTablePipeNode
 syn region qwikTablePipeNode contained start=+|+ keepend end=++ oneline
 
-syn region qwikDel matchgroup=qwikCodeDelimiter start="==" keepend end="==" oneline
+syn region qwikDel start="==[^=]" keepend end="==" oneline contains=qwikDelText
+syn region qwikDelText contained start="==" keepend end="" oneline
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" keepend end="''" oneline contains=qwikLineStart
 syn region qwikItalicBold matchgroup=qwikCodeDelimiter start="'''" keepend end="'''" oneline contains=qwikLineStart
 
@@ -87,6 +88,7 @@ hi def link qwikWordSep               htmlTagName
 hi def link qwikTableCommaNode        htmlTagName
 hi def link qwikTablePipeNode         htmlTagName
 
+hi def link qwikDelText               Delimiter
 hi def link qwikBold                  htmlBold
 hi def link qwikItalicBold            htmlItalicBold
 hi def link qwikCodeDelimiter         Delimiter
