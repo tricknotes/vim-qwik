@@ -71,7 +71,6 @@ hi def link qwikH3                    htmlH3
 hi def link qwikH4                    htmlH4
 hi def link qwikH5                    htmlH5
 hi def link qwikH6                    htmlH6
-hi def link qwikHeadingRule           qwikRule
 hi def link qwikHeadingDelimiter      Delimiter
 hi def link qwikOrderedListMarker     qwikListMarker
 hi def link qwikListMarker            htmlTagName
