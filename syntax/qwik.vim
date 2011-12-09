@@ -76,17 +76,17 @@ hi def link qwikHeadingDelimiter      Delimiter
 hi def link qwikOrderedListMarker     qwikListMarker
 hi def link qwikListMarker            htmlTagName
 hi def link qwikBlockquote            Comment
-hi def link qwikRule                  PreProc
+hi def link qwikRule                  htmlTag
 
 hi def link qwikIdLink                htmlTagName
-hi def link qwikId                    htmlTag
-hi def link qwikLink                  htmlLink
+hi def link qwikId                    htmlLink
+hi def link qwikLink                  String
 
 hi def link qwikWordHead              htmlBold
 hi def link qwikWordSep               htmlTagName
 
-hi def link qwikTableCommaNode        htmlTAgName
-hi def link qwikTablePipeNode         htmlTAgName
+hi def link qwikTableCommaNode        htmlTagName
+hi def link qwikTablePipeNode         htmlTagName
 
 hi def link qwikBold                  htmlBold
 hi def link qwikItalicBold            htmlItalicBold
