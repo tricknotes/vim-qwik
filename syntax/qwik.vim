@@ -48,9 +48,9 @@ syn region qwikWord start="^:[^:]*" keepend end=":" oneline contains=qwikWordHea
 syn region qwikWordHead contained start="[^:]*" keepend end="" oneline
 syn region qwikWordSep contained start=":" end="" oneline
 
-syn region qwikTableComma start="^," keepend end="$" oneline contains=qwikTableCommaNode
+syn region qwikTableComma start="^," keepend end="$" oneline contains=qwikIdLink,qwikTableCommaNode,@qwikSpecifiedString
 syn region qwikTableCommaNode contained start="," keepend end="" oneline
-syn region qwikTablePipe start="^|" keepend end="$" oneline contains=qwikTablePipeNode
+syn region qwikTablePipe start="^|" keepend end="$" oneline contains=qwikIdLink,qwikTablePipeNode,@qwikSpecifiedString
 syn region qwikTablePipeNode contained start="|" keepend end="" oneline
 syn cluster qwikTable contains=qwikTableComma,qwikTablePipe
 
