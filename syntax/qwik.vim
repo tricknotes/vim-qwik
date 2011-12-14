@@ -25,13 +25,15 @@ syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^\*\{3\}[^*]" keepend e
 syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^\*\{4\}[^*]" keepend end="$"
 syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^\*\{5\}[^*]" keepend end="$"
 syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\{6\}[^*]" keepend end="$"
+syn cluster qwikHeader contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6
 
 syn match qwikBlockquote "^>\s"
-
 syn region qwikCodeBlock start="^[ \t]\w*" end="$"
+syn cluster qwikBlock contains=qwikBlockquote,qwikCodeBlock
 
 syn match qwikListMarker "^-\{1,3\}\%(\s\+\S\)\@="
 syn match qwikOrderedListMarker "^+\{1,3\}\%(\s\+\S\)\@="
+syn cluster qwikList contains=qwikListMarker,qwikOrderedListMarker
 
 syn match qwikRule "^=\{4,\}$"
 syn match qwikRule "^-\{4,\}$"
@@ -50,17 +52,24 @@ syn region qwikTableComma start="^," keepend end="$" oneline contains=qwikTableC
 syn region qwikTableCommaNode contained start="," keepend end="" oneline
 syn region qwikTablePipe start="^|" keepend end="$" oneline contains=qwikTablePipeNode
 syn region qwikTablePipeNode contained start="|" keepend end="" oneline
+syn cluster qwikTable contains=qwikTableComma,qwikTablePipe
 
 syn region qwikDel start="==[^=]" keepend end="==" oneline contains=qwikDelText
 syn region qwikDelText contained start="==" keepend end="" oneline
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" keepend end="''" oneline
 syn region qwikItalicBold matchgroup=qwikCodeDelimiter start="'''" keepend end="'''" oneline
+syn cluster qwikSpecifiedString contains=qwikDel,qwikBold,qwikItalicBold
 
-syn region qwikPlugin matchgroup=qwikCodeDelimiter start="{{" keepend end="}}" contains=qwikPluginContent
+syn cluster qwikContent contains=@qwikHeader,@qwikBlock,@qwikList,qwikRule,qwikIdLink,qwikWord,qwikTable,qwikSpecifiedString,qwikCode,qwikComment
+
+syn region qwikPlugin start="^{{[^{]"me=e+1 keepend end="^}}$" contains=qwikPluginBracket,qwikPluginContent,@qwikContent
+syn region qwikPlugin matchgroup=qwikCodeDelimiter start="{{" keepend end="}}" oneline contains=qwikPluginContent
 syn region qwikPluginContent contained start="[^(]*(" keepend end=")" oneline contains=qwikPluginName,qwikPluginValue
 syn region qwikPluginName contained start="" end="("me=e-1
 syn region qwikPluginValue matchgroup=qwikPluginOperator contained start="(" end=")" contains=qwikPluginSep
 syn region qwikPluginSep matchgroup=qwikPluginOperator contained start="," end="" oneline
+syn region qwikPluginBracket matchgroup=qwikCodeDelimiter contained start="{{" end="" oneline
+syn region qwikPluginBracket matchgroup=qwikCodeDelimiter contained start="}}" end="" oneline
 
 syn region qwikCode matchgroup=qwikCodeDelimiter start="^{{{$" keepend end="^}}}$"
 
