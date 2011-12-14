@@ -31,8 +31,8 @@ syn match qwikBlockquote "^>\s"
 syn region qwikCodeBlock start="^[ \t]\w*" end="$"
 syn cluster qwikBlock contains=qwikBlockquote,qwikCodeBlock
 
-syn match qwikListMarker "^-\{1,3\}\%(\s\+\S\)\@="
-syn match qwikOrderedListMarker "^+\{1,3\}\%(\s\+\S\)\@="
+syn region qwikListMarker start="^-\{1,3\}\%(\s\+\S\)\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
+syn region qwikOrderedListMarker start="^+\{1,3\}\%(\s\+\S\)\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
 syn cluster qwikList contains=qwikListMarker,qwikOrderedListMarker
 
 syn match qwikRule "^=\{4,\}$"
@@ -82,8 +82,8 @@ hi def link qwikH4                    htmlH4
 hi def link qwikH5                    htmlH5
 hi def link qwikH6                    htmlH6
 hi def link qwikHeadingDelimiter      Delimiter
-hi def link qwikOrderedListMarker     qwikListMarker
 hi def link qwikListMarker            htmlTagName
+hi def link qwikOrderedListMarker     htmlTagName
 hi def link qwikBlockquote            Comment
 hi def link qwikRule                  htmlTag
 
