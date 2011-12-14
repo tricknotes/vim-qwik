@@ -14,17 +14,17 @@ syn sync minlines=10
 syn case ignore
 
 syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^!\{1\}[^!]"  keepend end="$"
-syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^!\{2\}[^!]"  keepend end="$"
-syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^!\{3\}[^!]"  keepend end="$"
-syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^!\{4\}[^!]"  keepend end="$"
-syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^!\{5\}[^!]"  keepend end="$"
-syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^!\{6\}[^!]"  keepend end="$"
+syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^!\{1\}[^!]"  keepend end="$"
+syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^!\{2\}[^!]"  keepend end="$"
+syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^!\{3\}[^!]"  keepend end="$"
+syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^!\{4\}[^!]"  keepend end="$"
+syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^!\{5\}[^!]"  keepend end="$"
 syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^\*\{1\}[^*]" keepend end="$"
-syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^\*\{2\}[^*]" keepend end="$"
-syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^\*\{3\}[^*]" keepend end="$"
-syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^\*\{4\}[^*]" keepend end="$"
-syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^\*\{5\}[^*]" keepend end="$"
-syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\{6\}[^*]" keepend end="$"
+syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^\*\{1\}[^*]" keepend end="$"
+syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^\*\{2\}[^*]" keepend end="$"
+syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^\*\{3\}[^*]" keepend end="$"
+syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^\*\{4\}[^*]" keepend end="$"
+syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\{5\}[^*]" keepend end="$"
 syn cluster qwikHeader contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6
 
 syn match qwikBlockquote "^>\s"
