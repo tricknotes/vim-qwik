@@ -42,19 +42,19 @@ syn match qwikRule contained "^=\{4,\}$"
 syn match qwikRule contained "^-\{4,\}$"
 syn match qwikRule contained "^-- $"
 
-syn region qwikIdLink start=+\[\[+ keepend end=+]]+ oneline contains=qwikId,qwikLink
-syn region qwikId contained start=+\[\[+ms=s+2 keepend end=+]]+me=s-1 oneline
-syn region qwikId contained start=+\[\[+ms=s+2 keepend end=+|+me=s-1 oneline
-syn region qwikLink contained start=+|+ms=s+1 keepend end=+]]+me=s-1 oneline
+syn region qwikIdLink start="\[\[" keepend end="]]" oneline contains=qwikId,qwikLink
+syn region qwikId contained start="\[\["ms=s+2 keepend end="]]"me=s-1 oneline
+syn region qwikId contained start="\[\["ms=s+2 keepend end="|"me=s-1 oneline
+syn region qwikLink contained start="|"ms=s+1 keepend end="]]"me=s-1 oneline
 
-syn region qwikWord start=+^:[^:]*+ keepend end=+:+ oneline contains=qwikWordHead,qwikWordSep
-syn region qwikWordHead contained start=+[^:]*+ keepend end=++ oneline
-syn region qwikWordSep contained start=+:+ end=++ oneline
+syn region qwikWord start="^:[^:]*" keepend end=":" oneline contains=qwikWordHead,qwikWordSep
+syn region qwikWordHead contained start="[^:]*" keepend end="" oneline
+syn region qwikWordSep contained start=":" end="" oneline
 
-syn region qwikTableComma start=+^,+ keepend end=+$+ oneline contains=qwikTableCommaNode
-syn region qwikTableCommaNode contained start=+,+ keepend end=++ oneline
-syn region qwikTablePipe start=+^|+ keepend end=+$+ oneline contains=qwikTablePipeNode
-syn region qwikTablePipeNode contained start=+|+ keepend end=++ oneline
+syn region qwikTableComma start="^," keepend end="$" oneline contains=qwikTableCommaNode
+syn region qwikTableCommaNode contained start="," keepend end="" oneline
+syn region qwikTablePipe start="^|" keepend end="$" oneline contains=qwikTablePipeNode
+syn region qwikTablePipeNode contained start="|" keepend end="" oneline
 
 syn region qwikDel start="==[^=]" keepend end="==" oneline contains=qwikDelText
 syn region qwikDelText contained start="==" keepend end="" oneline
