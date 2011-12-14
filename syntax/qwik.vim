@@ -61,9 +61,13 @@ syn region qwikDelText contained start="==" keepend end="" oneline
 syn region qwikBold matchgroup=qwikCodeDelimiter start="''" keepend end="''" oneline contains=qwikLineStart
 syn region qwikItalicBold matchgroup=qwikCodeDelimiter start="'''" keepend end="'''" oneline contains=qwikLineStart
 
-syn region qwikCode matchgroup=qwikCodeDelimiter start="^{{{$" keepend end="^}}}$"
+syn region qwikPlugin matchgroup=qwikCodeDelimiter start="{{" keepend end="}}" contains=qwikPluginContent
+syn region qwikPluginContent contained start="[^(]*(" keepend end=")" oneline contains=qwikPluginName,qwikPluginValue
+syn region qwikPluginName contained start="" end="("me=e-1
+syn region qwikPluginValue matchgroup=qwikPluginOperator contained start="(" end=")" contains=qwikPluginSep
+syn region qwikPluginSep matchgroup=qwikPluginOperator contained start="," end="" oneline
 
-syn region qwikPlugin matchgroup=qwikCodeDelimiter start="{{" keepend end="}}" oneline contains=qwikLineStart
+syn region qwikCode matchgroup=qwikCodeDelimiter start="^{{{$" keepend end="^}}}$"
 
 syn region qwikComment start="^#" keepend end="$"
 
@@ -94,7 +98,9 @@ hi def link qwikBold                  htmlBold
 hi def link qwikItalicBold            htmlItalicBold
 hi def link qwikCodeDelimiter         Delimiter
 
-hi def link qwikPlugin                htmlTagName
+hi def link qwikPluginName            htmlTag
+hi def link qwikPluginValue           String
+hi def link qwikPluginOperator        htmlTagName
 
 hi def link qwikComment               Comment
 
