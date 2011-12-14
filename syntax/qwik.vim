@@ -62,7 +62,7 @@ syn cluster qwikSpecifiedString contains=qwikDel,qwikBold,qwikItalicBold
 
 syn cluster qwikContent contains=@qwikHeader,@qwikBlock,@qwikList,qwikRule,qwikIdLink,qwikWord,qwikTable,qwikSpecifiedString,qwikCode,qwikComment
 
-syn region qwikPlugin start="^{{[^{]"me=e+1 keepend end="^}}$" contains=qwikPluginBracket,qwikPluginContent,@qwikContent
+syn region qwikPlugin start="^{{[^{]" keepend end="^}}$" contains=qwikPluginBracket,qwikPluginContent,@qwikContent
 syn region qwikPlugin matchgroup=qwikPluginOperator start="{{" keepend end="}}" oneline contains=qwikPluginContent
 syn region qwikPluginContent contained start="[^(]*(" keepend end=")" oneline contains=qwikPluginName,qwikPluginValue
 syn region qwikPluginName contained start="" end="("me=e-1
