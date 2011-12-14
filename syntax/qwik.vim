@@ -13,11 +13,6 @@ unlet! b:current_syntax
 syn sync minlines=10
 syn case ignore
 
-syn match qwikLineStart "^<\@!" nextgroup=@qwikBlock
-
-syn cluster qwikBlock contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6,qwikBlockquote,qwikListMarker,qwikOrderedListMarker,qwikCodeBlock,qwikRule,qwikDel,qwikTableComma,qwikTablePipe
-syn cluster qwikInline contains=qwikItalicBold,qwikBold,qwikCode,qwikIdLink,qwikPlugin
-
 syn region qwikH1 matchgroup=qwikHeadingDelimiter start="^!\{1\}[^!]"  keepend end="$"
 syn region qwikH2 matchgroup=qwikHeadingDelimiter start="^!\{2\}[^!]"  keepend end="$"
 syn region qwikH3 matchgroup=qwikHeadingDelimiter start="^!\{3\}[^!]"  keepend end="$"
@@ -31,16 +26,16 @@ syn region qwikH4 matchgroup=qwikHeadingDelimiter start="^\*\{4\}[^*]" keepend e
 syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^\*\{5\}[^*]" keepend end="$"
 syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\{6\}[^*]" keepend end="$"
 
-syn match qwikBlockquote contained "^>\s"
+syn match qwikBlockquote "^>\s"
 
-syn region qwikCodeBlock contained start="^ \|^\t" end="$"
+syn region qwikCodeBlock start="^[ \t]\w*" end="$"
 
-syn match qwikListMarker contained "-\{1,3\}\%(\s\+\S\)\@="
-syn match qwikOrderedListMarker contained "+\{1,3\}\%(\s\+\S\)\@="
+syn match qwikListMarker "^-\{1,3\}\%(\s\+\S\)\@="
+syn match qwikOrderedListMarker "^+\{1,3\}\%(\s\+\S\)\@="
 
-syn match qwikRule contained "^=\{4,\}$"
-syn match qwikRule contained "^-\{4,\}$"
-syn match qwikRule contained "^-- $"
+syn match qwikRule "^=\{4,\}$"
+syn match qwikRule "^-\{4,\}$"
+syn match qwikRule "^-- $"
 
 syn region qwikIdLink start="\[\[" keepend end="]]" oneline contains=qwikId,qwikLink
 syn region qwikId contained start="\[\["ms=s+2 keepend end="]]"me=s-1 oneline
