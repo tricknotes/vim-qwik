@@ -30,7 +30,7 @@ syn cluster qwikHeader contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6
 syn region qwikBlockquote start="^>" end="$" oneline contains=qwikQuote,@qwikInnerList,qwikIdLink,@qwikSpecifiedString
 syn region qwikCodeBlock start="^ " end="$" oneline
 syn region qwikCodeBlock start="^\t" end="$" oneline
-syn region qwikQuote contained start="^>" end="" oneline contains=qwikInnerList,qwikInnerOrderedList
+syn region qwikQuote contained start="^>" end="" oneline
 syn cluster qwikBlock contains=qwikBlockquote,qwikCodeBlock
 syn region qwikInnerListMarker contained start="-\{1,3\}" end="" oneline
 syn region qwikInnerOrderedListMarker contained start="+\{1,3\}" end="" oneline
