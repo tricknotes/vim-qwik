@@ -37,11 +37,11 @@ syn region qwikQuote contained start="^>[ >]*+" end="" oneline contains=qwikInne
 syn cluster qwikBlock contains=qwikBlockquote,qwikCodeBlock
 syn region qwikInnerHeader contained start="!\{1,5\}" end="$"
 syn region qwikInnerHeader contained start="\*\{1,5\}" end="$"
-syn region qwikInnerListMarker contained start="-\{1,3\}" end="" oneline
-syn region qwikInnerOrderedListMarker contained start="+\{1,3\}" end="" oneline
 
-syn region qwikListMarker start="^-\{1,3\}.\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
-syn region qwikOrderedListMarker start="^+\{1,3\}.\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
+syn region qwikListMarker start="^-" end="" oneline contains=qwikInnerListMarker,qwikIdLink,@qwikSpecifiedString
+syn region qwikInnerListMarker contained start="-\{1,3\}.\@=" end="" oneline
+syn region qwikOrderedListMarker start="^+" end="" oneline contains=qwikInnerOrderedListMarker,qwikIdLink,@qwikSpecifiedString
+syn region qwikInnerOrderedListMarker contained start="+\{1,3\}.\@=" end="" oneline
 syn cluster qwikList contains=qwikListMarker,qwikOrderedListMarker
 
 syn match qwikRule "^=\{4,\}$"
@@ -90,11 +90,10 @@ hi def link qwikH4                       htmlH4
 hi def link qwikH5                       htmlH5
 hi def link qwikH6                       htmlH6
 hi def link qwikHeadingDelimiter         Delimiter
-hi def link qwikListMarker               htmlTagName
-hi def link qwikOrderedListMarker        htmlTagName
+hi def link qwikListPoint                htmlTagName
 hi def link qwikInnerHeader              qwikHeadingDelimiter
-hi def link qwikInnerListMarker          qwikListMarker
-hi def link qwikInnerOrderedListMarker   qwikListMarker
+hi def link qwikInnerListMarker          qwikListPoint
+hi def link qwikInnerOrderedListMarker   qwikListPoint
 hi def link qwikQuote                    Comment
 hi def link qwikRule                     htmlTag
 
