@@ -70,7 +70,6 @@ syn region qwikItalicBold matchgroup=qwikCodeDelimiter start="'''" keepend end="
 syn cluster qwikSpecifiedString contains=qwikDel,qwikBold,qwikItalicBold
 
 syn cluster qwikContent contains=@qwikHeader,@qwikBlock,@qwikList,qwikRule,qwikIdLink,qwikWord,qwikTable,@qwikSpecifiedString,qwikCode,qwikComment
-
 syn region qwikPlugin start="[^{]{{[^{]" keepend end="}}" oneline contains=qwikPluginContent,qwikPluginBracketEnd
 syn region qwikPlugin start="^{{[^{]" keepend end="^}}$" contains=qwikPluginContent,@qwikContent,qwikPluginBracketEnd
 syn region qwikPluginContent contained start="{{[^(]*(" keepend end=")" oneline contains=qwikPluginBracketStart,qwikPluginName,qwikPluginValue
