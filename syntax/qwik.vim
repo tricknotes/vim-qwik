@@ -40,8 +40,8 @@ syn region qwikInnerHeader contained start="\*\{1,5\}" end="$"
 syn region qwikInnerListMarker contained start="-\{1,3\}" end="" oneline
 syn region qwikInnerOrderedListMarker contained start="+\{1,3\}" end="" oneline
 
-syn region qwikListMarker start="^-\{1,3\}\%(\s\+\S\)\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
-syn region qwikOrderedListMarker start="^+\{1,3\}\%(\s\+\S\)\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
+syn region qwikListMarker start="^-\{1,3\}.\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
+syn region qwikOrderedListMarker start="^+\{1,3\}.\@=" end="" oneline contains=qwikIdLink,@qwikSpecifiedString
 syn cluster qwikList contains=qwikListMarker,qwikOrderedListMarker
 
 syn match qwikRule "^=\{4,\}$"
