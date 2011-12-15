@@ -82,41 +82,41 @@ syn region qwikCode matchgroup=qwikCodeDelimiter start="^{{{$" keepend end="^}}}
 
 syn region qwikComment start="^#" keepend end="$"
 
-hi def link qwikH1                    htmlH1
-hi def link qwikH2                    htmlH2
-hi def link qwikH3                    htmlH3
-hi def link qwikH4                    htmlH4
-hi def link qwikH5                    htmlH5
-hi def link qwikH6                    htmlH6
-hi def link qwikHeadingDelimiter      Delimiter
-hi def link qwikListMarker            htmlTagName
-hi def link qwikOrderedListMarker     htmlTagName
-hi def link qwikInnerHeader           qwikHeadingDelimiter
-hi def link qwikInnerListMarker       qwikListMarker
-hi def link qwikInnerOrderedListMarker  qwikListMarker
-hi def link qwikQuote                 Comment
-hi def link qwikRule                  htmlTag
+hi def link qwikH1                       htmlH1
+hi def link qwikH2                       htmlH2
+hi def link qwikH3                       htmlH3
+hi def link qwikH4                       htmlH4
+hi def link qwikH5                       htmlH5
+hi def link qwikH6                       htmlH6
+hi def link qwikHeadingDelimiter         Delimiter
+hi def link qwikListMarker               htmlTagName
+hi def link qwikOrderedListMarker        htmlTagName
+hi def link qwikInnerHeader              qwikHeadingDelimiter
+hi def link qwikInnerListMarker          qwikListMarker
+hi def link qwikInnerOrderedListMarker   qwikListMarker
+hi def link qwikQuote                    Comment
+hi def link qwikRule                     htmlTag
 
-hi def link qwikIdLink                htmlTagName
-hi def link qwikId                    htmlLink
-hi def link qwikLink                  String
+hi def link qwikIdLink                   htmlTagName
+hi def link qwikId                       htmlLink
+hi def link qwikLink                     String
 
-hi def link qwikWordHead              htmlBold
-hi def link qwikWordSep               htmlTagName
+hi def link qwikWordHead                 htmlBold
+hi def link qwikWordSep                  htmlTagName
 
-hi def link qwikTableCommaNode        htmlTagName
-hi def link qwikTablePipeNode         htmlTagName
+hi def link qwikTableCommaNode           htmlTagName
+hi def link qwikTablePipeNode            htmlTagName
 
-hi def link qwikDelText               Delimiter
-hi def link qwikBold                  htmlBold
-hi def link qwikItalicBold            htmlItalicBold
-hi def link qwikCodeDelimiter         Delimiter
+hi def link qwikDelText                  Delimiter
+hi def link qwikBold                     htmlBold
+hi def link qwikItalicBold               htmlItalicBold
+hi def link qwikCodeDelimiter            Delimiter
 
-hi def link qwikPluginName            htmlTag
-hi def link qwikPluginValue           String
-hi def link qwikPluginOperator        htmlTagName
+hi def link qwikPluginName               htmlTag
+hi def link qwikPluginValue              String
+hi def link qwikPluginOperator           htmlTagName
 
-hi def link qwikComment               Comment
+hi def link qwikComment                  Comment
 
 let b:current_syntax = "qwik"
 
