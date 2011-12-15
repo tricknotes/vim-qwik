@@ -34,6 +34,7 @@ syn region qwikQuote contained start="^>[ >]*" end="" oneline
 syn region qwikQuote contained start="^>[ >]*[!*]" end="" oneline contains=qwikInnerHeader
 syn region qwikQuote contained start="^>[ >]*-" end="" oneline contains=qwikInnerListMarker
 syn region qwikQuote contained start="^>[ >]*+" end="" oneline contains=qwikInnerOrderedListMarker
+syn region qwikQuote contained start="^>[ >]*\%([-+]$\)\@=" end="" oneline
 syn cluster qwikBlock contains=qwikBlockquote,qwikCodeBlock
 syn region qwikInnerHeader contained start="!\{1,5\}" end="$"
 syn region qwikInnerHeader contained start="\*\{1,5\}" end="$"
