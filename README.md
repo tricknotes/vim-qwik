@@ -13,7 +13,7 @@ Download the zipball from [github](https://github.com/tricknotes/vim-qwik/zipbal
 
 Extract the archive into `~/.vim/`:
 
-```
+```sh
 unzip -od ~/.vim tricknotes-vim-qwik-{HASH}.zip
 ```
 
@@ -21,7 +21,7 @@ unzip -od ~/.vim tricknotes-vim-qwik-{HASH}.zip
 
 Write following line into your `.vimrc`:
 
-```
+```vim
 Bundle 'tricknotes/vim-qwik'
 ```
 
