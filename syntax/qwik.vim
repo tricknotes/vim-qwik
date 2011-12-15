@@ -27,11 +27,13 @@ syn region qwikH5 matchgroup=qwikHeadingDelimiter start="^\*\{4\}[^*]" keepend e
 syn region qwikH6 matchgroup=qwikHeadingDelimiter start="^\*\{5\}[^*]" keepend end="$"
 syn cluster qwikHeader contains=qwikH1,qwikH2,qwikH3,qwikH4,qwikH5,qwikH6
 
-syn region qwikBlockquote start="^>" end="$" oneline contains=qwikQuote,@qwikInnerList,qwikIdLink,@qwikSpecifiedString
+syn region qwikBlockquote start="^>" end="$" oneline contains=qwikInnerHeader,qwikQuote,@qwikInnerList,qwikIdLink,@qwikSpecifiedString
 syn region qwikCodeBlock start="^ " end="$" oneline
 syn region qwikCodeBlock start="^\t" end="$" oneline
 syn region qwikQuote contained start="^>[ >]*" end="" oneline
 syn cluster qwikBlock contains=qwikBlockquote,qwikCodeBlock
+syn region qwikInnerHeader contained start="!\{1,5\}" end="$"
+syn region qwikInnerHeader contained start="\*\{1,5\}" end="$"
 syn region qwikInnerListMarker contained start="-\{1,3\}" end="" oneline
 syn region qwikInnerOrderedListMarker contained start="+\{1,3\}" end="" oneline
 syn cluster qwikInnerList contains=qwikInnerListMarker,qwikInnerOrderedListMarker
@@ -89,6 +91,7 @@ hi def link qwikH6                    htmlH6
 hi def link qwikHeadingDelimiter      Delimiter
 hi def link qwikListMarker            htmlTagName
 hi def link qwikOrderedListMarker     htmlTagName
+hi def link qwikInnerHeader           qwikHeadingDelimiter
 hi def link qwikInnerListMarker       qwikListMarker
 hi def link qwikInnerOrderedListMarker  qwikListMarker
 hi def link qwikQuote                 Comment
